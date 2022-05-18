@@ -25,7 +25,7 @@ public class UsuarioDAO implements UsuarioInterface {
 
 	@Override
 	public List<Map<String, Object>> listarId(int id) {
-		// TODO Auto-generated method stub
+
 		return null;
 	}
 
@@ -37,13 +37,13 @@ public class UsuarioDAO implements UsuarioInterface {
 
 	@Override
 	public int editNombre(Usuario u) {
-		String sql="update usuario set nombre=? where id=?";		
+		String sql="update usuario set nombre=? where id_usuario=?";		
 		return template.update(sql,u.getNombre(),u.getId_usuario());
 	}
 
 	@Override
 	public int delete(int id) {
-		String sql="delete from usuario where id=?";
+		String sql="delete from usuario where id_usuario=?";
 		return template.update(sql,id);
 	}
 	
