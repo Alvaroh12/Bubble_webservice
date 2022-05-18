@@ -9,7 +9,6 @@ import org.springframework.stereotype.Repository;
 
 import com.TFG.Bubble.interfaces.EmpleoInterface;
 import com.TFG.Bubble.modelo.Empleo;
-import com.TFG.Bubble.modelo.Oferta;
 
 @Repository
 public class EmpleoDAO implements EmpleoInterface{
