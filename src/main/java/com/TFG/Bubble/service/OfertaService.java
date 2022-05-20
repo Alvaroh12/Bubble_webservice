@@ -23,8 +23,7 @@ public class OfertaService implements OfertaInterface{
 
 	@Override
 	public List<Map<String, Object>> listarId(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.listarId(id);
 	}
 
 	@Override
@@ -33,8 +32,8 @@ public class OfertaService implements OfertaInterface{
 	}
 
 	@Override
-	public int edit(Oferta o) {
-		return dao.edit(o);
+	public int editDescripcion(String descricion, int id) {
+		return dao.editDescripcion(descricion,id);
 	}
 
 	@Override

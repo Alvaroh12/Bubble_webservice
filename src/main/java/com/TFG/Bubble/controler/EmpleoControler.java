@@ -13,15 +13,17 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.TFG.Bubble.modelo.Usuario;
-import com.TFG.Bubble.service.UsuarioService;
+import com.TFG.Bubble.modelo.Empleo;
+import com.TFG.Bubble.modelo.Oferta;
+import com.TFG.Bubble.service.EmpleoService;
+import com.TFG.Bubble.service.OfertaService;
 
 @RestController
-@RequestMapping("usuario")
-public class UsuarioControler {
+@RequestMapping("empleo")
+public class EmpleoControler {
 
 	@Autowired
-	private UsuarioService service;
+	private EmpleoService service;
 	
 	@GetMapping("/listar")
 	public List<Map<String, Object>> listar() {
@@ -33,9 +35,10 @@ public class UsuarioControler {
 		return service.listarId(id);
 	}
 	
+	
 	@PostMapping("/agregar")
-	public String save(@RequestBody Usuario u) {
-		int id=service.add(u);
+	public String save(@RequestBody Empleo empleo) {
+		int id=service.add(empleo);
 		if(id==0) {
 			return "No se pudo Regsitrar!";
 		}
@@ -43,9 +46,8 @@ public class UsuarioControler {
 	}
 	
 	@PostMapping("/actualizar/{id}")
-	public String save(@RequestBody Usuario u,@PathVariable int id) {
-		u.setId_usuario(id);
-		int r=service.editNombre(u);
+	public String save(@RequestBody Empleo empleo, @PathVariable int id) {
+		int r=service.editAceptacion(empleo, id);
 		if(r==0) {
 			return "No se pudo Actualizar!";
 		}

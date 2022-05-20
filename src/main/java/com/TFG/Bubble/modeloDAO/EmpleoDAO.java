@@ -24,8 +24,8 @@ public class EmpleoDAO implements EmpleoInterface{
 
 	@Override
 	public List<Map<String, Object>> listarId(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		List<Map<String, Object>> list = template.queryForList("select * from empleo where id_empleo=?", id);
+		return list;
 	}
 
 	@Override
@@ -35,14 +35,14 @@ public class EmpleoDAO implements EmpleoInterface{
 	}
 
 	@Override
-	public int edit(Empleo e) {
-		String sql="update empleo set isAceptado=?, isCancelado=? where id=?";	
-		return template.update(sql,e.getIsAceptado(),e.getIsCancelado());
+	public int editAceptacion(Empleo empleo, int id) {
+		String sql="update empleo set isAceptado=?, isCancelado=? where id_empleo=?";	
+		return template.update(sql,empleo.getIsAceptado(),empleo.getIsCancelado(), id);
 	}
 
 	@Override
 	public int delete(int id) {
-		String sql="delete from empleo where id=?";
+		String sql="delete from empleo where id_empleo=?";
 		return template.update(sql,id);
 	}
 

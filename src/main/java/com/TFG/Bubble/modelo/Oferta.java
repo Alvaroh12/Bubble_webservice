@@ -21,6 +21,11 @@ public class Oferta {
 	@Column
 	private int id_usuario;
 	
+	
+	public Oferta() {
+		
+	}
+	
 	public Oferta(int id_oferta, String tipo_oferta, String descripcion, double precio, int id_usuario) {
 		this.id_oferta = id_oferta;
 		this.tipo_oferta = tipo_oferta;

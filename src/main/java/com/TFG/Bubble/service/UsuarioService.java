@@ -23,8 +23,7 @@ public class UsuarioService implements UsuarioInterface{
 
 	@Override
 	public List<Map<String, Object>> listarId(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.listarId(id);
 	}
 
 	@Override

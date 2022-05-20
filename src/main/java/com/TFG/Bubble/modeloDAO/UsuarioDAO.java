@@ -25,8 +25,8 @@ public class UsuarioDAO implements UsuarioInterface {
 
 	@Override
 	public List<Map<String, Object>> listarId(int id) {
-
-		return null;
+		List<Map<String, Object>> list = template.queryForList("select * from usuario where id_usuario=?", id);
+		return list;
 	}
 
 	@Override

@@ -10,7 +10,7 @@ public interface OfertaInterface {
 	public List<Map<String, Object>>listar();
 	public List<Map<String, Object>>listarId(int id);
 	public int add(Oferta o);
-	public int edit(Oferta o);
+	public int editDescripcion(String descricion, int id);
 	public int delete(int id);
 	
 	

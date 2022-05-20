@@ -25,10 +25,10 @@ public class OfertaDAO implements OfertaInterface{
 
 	@Override
 	public List<Map<String, Object>> listarId(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		List<Map<String, Object>> list = template.queryForList("select * from oferta where id_oferta=?", id);
+		return list;
 	}
-
+	
 	@Override
 	public int add(Oferta o) {
 		String sql = "insert into oferta(tipo_oferta,descripcion,precio, id_usuario)values(?,?,?,?)";
@@ -36,14 +36,14 @@ public class OfertaDAO implements OfertaInterface{
 	}
 
 	@Override
-	public int edit(Oferta o) {
-		String sql="update oferta set tipo_oferta=?, descripcion=?, precio=? where id=?";		
-		return template.update(sql,o.getTipo_oferta(),o.getDescripcion(), o.getPrecio());
+	public int editDescripcion(String descricion, int id) {
+		String sql="update oferta set descripcion=? where id_oferta=?";		
+		return template.update(sql,descricion, id);
 	}
 
 	@Override
 	public int delete(int id) {
-		String sql="delete from oferta where id=?";
+		String sql="delete from oferta where id_oferta=?";
 		return template.update(sql,id);
 	}
 	

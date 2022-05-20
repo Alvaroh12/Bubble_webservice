@@ -22,6 +22,11 @@ public class Empleo {
 	private int id_usuario_comprador;
 	@Column
 	private int id_usuario_oferente;
+	
+	public Empleo() {
+	
+	}
+	
 	public Empleo(int id_empleo, int isAceptado, int isCancelado, double id_oferta, int id_usuario_comprador,
 			int id_usuario_oferente) {
 		this.id_empleo = id_empleo;
@@ -31,6 +36,7 @@ public class Empleo {
 		this.id_usuario_comprador = id_usuario_comprador;
 		this.id_usuario_oferente = id_usuario_oferente;
 	}
+
 	public int getId_empleo() {
 		return id_empleo;
 	}

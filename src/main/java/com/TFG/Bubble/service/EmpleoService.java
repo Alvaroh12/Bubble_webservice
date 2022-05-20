@@ -23,8 +23,7 @@ public class EmpleoService implements EmpleoInterface{
 
 	@Override
 	public List<Map<String, Object>> listarId(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.listarId(id);
 	}
 
 	@Override
@@ -33,8 +32,8 @@ public class EmpleoService implements EmpleoInterface{
 	}
 
 	@Override
-	public int edit(Empleo e) {
-		return dao.edit(e);
+	public int editAceptacion(Empleo empleo, int id) {
+		return dao.editAceptacion(empleo,id);
 	}
 
 	@Override
