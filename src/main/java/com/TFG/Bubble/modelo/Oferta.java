@@ -20,18 +20,22 @@ public class Oferta {
 	private double precio;
 	@Column
 	private int id_usuario;
+	@Column
+	private int categoria;
 	
 	
 	public Oferta() {
 		
 	}
-	
-	public Oferta(int id_oferta, String tipo_oferta, String descripcion, double precio, int id_usuario) {
+
+	public Oferta(int id_oferta, String tipo_oferta, String descripcion, double precio, int id_usuario,
+			int categoria) {
 		this.id_oferta = id_oferta;
 		this.tipo_oferta = tipo_oferta;
 		this.descripcion = descripcion;
 		this.precio = precio;
 		this.id_usuario = id_usuario;
+		this.categoria = categoria;
 	}
 
 	public int getId_oferta() {
@@ -73,9 +77,14 @@ public class Oferta {
 	public void setId_usuario(int id_usuario) {
 		this.id_usuario = id_usuario;
 	}
-	
-	
-	
-	
+
+	public int getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(int categoria) {
+		this.categoria = categoria;
+	}
+		
 	
 }

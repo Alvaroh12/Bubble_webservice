@@ -29,7 +29,7 @@ public class UsuarioDAO implements UsuarioInterface {
 		return list;
 	}
 
-	@Override
+	@Override 
 	public int add(Usuario u) {
 		String sql = "insert into usuario(nombre,correo,password)values(?,?,?)";
 		return template.update(sql, u.getNombre(), u.getCorreo(), u.getPassword());

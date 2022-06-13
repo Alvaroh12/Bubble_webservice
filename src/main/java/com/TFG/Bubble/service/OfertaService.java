@@ -41,4 +41,14 @@ public class OfertaService implements OfertaInterface{
 		return dao.delete(id);
 	}
 
+	@Override
+	public List<Map<String, Object>> getOfertaUsuario(int id) {
+		return dao.getOfertaUsuario(id);
+	}
+
+	@Override
+	public List<Map<String, Object>> listarCategoria(int id, String categoria) {
+		return dao.listarCategoria(id, categoria);
+	}
+
 }
