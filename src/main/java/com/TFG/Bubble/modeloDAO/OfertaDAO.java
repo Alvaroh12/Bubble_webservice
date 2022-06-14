@@ -49,6 +49,36 @@ public class OfertaDAO implements OfertaInterface{
 	}
 	
 	@Override
+	public List<Map<String, Object>> getMisOfertaUsuario(int id) {
+		List<Map<String, Object>> list = template.queryForList("SELECT o.id_oferta, tipo_oferta, c.categoria, precio, nombre, o.descripcion, correo, o.id_usuario FROM oferta o\r\n"
+				+ "inner join usuario on o.id_usuario = usuario.id_usuario\r\n"
+				+ "inner join categoria c on o.categoria = c.id_categoria\r\n"
+				+ "where o.id_usuario=?", id);
+		return list;
+	}
+	
+	@Override
+	public List<Map<String, Object>> getOfertaUsuarioEmpleo(int id) {
+		List<Map<String, Object>> list = template.queryForList("SELECT tipo_oferta, descripcion, nombre, c.categoria, precio, isAceptado FROM oferta o\r\n"
+				+ "inner join usuario on o.id_usuario=usuario.id_usuario \r\n"
+				+ "inner join categoria c on o.categoria = c.id_categoria\r\n"
+				+ "inner join empleo e on e.id_oferta = o.id_oferta\r\n"
+				+ "where e.id_usuario_comprador=?", id);
+		return list;
+	}
+	
+	@Override
+	public List<Map<String, Object>> getOfertaUsuarioEmpleoMe(int id) {
+		List<Map<String, Object>> list = template.queryForList("SELECT tipo_oferta, descripcion, nombre, c.categoria, precio, isAceptado, id_empleo FROM oferta o\r\n"
+				+ "inner join categoria c on o.categoria = c.id_categoria\r\n"
+				+ "inner join empleo e on e.id_oferta = o.id_oferta\r\n"
+				+ "inner join usuario on e.id_usuario_comprador=usuario.id_usuario \r\n"
+				+ "where e.id_usuario_oferente=?", id);
+		return list;
+	}
+	
+	
+	@Override
 	public int add(Oferta o) {
 		String sql = "insert into oferta(tipo_oferta,descripcion,precio, id_usuario, categoria)values(?,?,?,?,?)";
 		return template.update(sql, o.getTipo_oferta(), o.getDescripcion(), o.getPrecio(), o.getId_usuario(), o.getCategoria());

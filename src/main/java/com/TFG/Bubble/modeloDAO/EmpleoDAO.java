@@ -35,9 +35,9 @@ public class EmpleoDAO implements EmpleoInterface{
 	}
 
 	@Override
-	public int editAceptacion(Empleo empleo, int id) {
-		String sql="update empleo set isAceptado=?, isCancelado=? where id_empleo=?";	
-		return template.update(sql,empleo.getIsAceptado(),empleo.getIsCancelado(), id);
+	public int editAceptacion(int aceptado, int id) {
+		String sql="update empleo set isAceptado=? where id_empleo=?";	
+		return template.update(sql,aceptado, id);
 	}
 
 	@Override

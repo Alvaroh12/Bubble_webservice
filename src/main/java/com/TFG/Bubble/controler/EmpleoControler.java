@@ -45,9 +45,9 @@ public class EmpleoControler {
 		return "Se registró con éxito!";
 	}
 	
-	@PostMapping("/actualizar/{id}")
-	public String save(@RequestBody Empleo empleo, @PathVariable int id) {
-		int r=service.editAceptacion(empleo, id);
+	@PostMapping("/actualizar/{id}/{aceptado}")
+	public String save(@PathVariable int aceptado, @PathVariable int id) {
+		int r=service.editAceptacion(aceptado, id);
 		if(r==0) {
 			return "No se pudo Actualizar!";
 		}

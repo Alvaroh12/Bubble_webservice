@@ -45,6 +45,21 @@ public class OfertaControler {
 		return service.getOfertaUsuario(id);
 	}	
 	
+	@GetMapping("/listarMOU/{id}")
+	public List<Map<String, Object>> getMisOfertaUsuario(@PathVariable int id) {
+		return service.getMisOfertaUsuario(id);
+	}	
+	
+	@GetMapping("/listarOUE/{id}")
+	public List<Map<String, Object>> getOfertaUsuarioEmpleo(@PathVariable int id) {
+		return service.getOfertaUsuarioEmpleo(id);
+	}	
+	
+	@GetMapping("/listarOUEM/{id}")
+	public List<Map<String, Object>> getOfertaUsuarioEmpleoMe(@PathVariable int id) {
+		return service.getOfertaUsuarioEmpleoMe(id);
+	}
+	
 	@PostMapping("/agregar")
 	public String save(@RequestBody Oferta oferta) {
 		int id=service.add(oferta);

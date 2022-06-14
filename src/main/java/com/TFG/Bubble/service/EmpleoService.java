@@ -32,8 +32,8 @@ public class EmpleoService implements EmpleoInterface{
 	}
 
 	@Override
-	public int editAceptacion(Empleo empleo, int id) {
-		return dao.editAceptacion(empleo,id);
+	public int editAceptacion(int aceptado, int id) {
+		return dao.editAceptacion(aceptado,id);
 	}
 
 	@Override

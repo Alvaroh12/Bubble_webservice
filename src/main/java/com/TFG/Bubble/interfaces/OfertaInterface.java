@@ -10,6 +10,9 @@ public interface OfertaInterface {
 	public List<Map<String, Object>>listar();
 	public List<Map<String, Object>>listarId(int id);
 	public List<Map<String, Object>>getOfertaUsuario(int id);
+	public List<Map<String, Object>>getMisOfertaUsuario(int id);
+	public List<Map<String, Object>>getOfertaUsuarioEmpleo(int id);
+	public List<Map<String, Object>>getOfertaUsuarioEmpleoMe(int id);
 	public List<Map<String, Object>>listarCategoria(int id, String categoria);
 	public int add(Oferta o);
 	public int editDescripcion(String descricion, int id);
